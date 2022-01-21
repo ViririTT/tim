@@ -1,0 +1,22 @@
+Table: panelbeaters
+Columns:
+DateIn date 
+DateOut date 
+Client text 
+Insurance text 
+ClaimNo text 
+InvoiceNo int 
+Vehicle text 
+Reg text 
+SaleAmount text 
+ExcessAmount double 
+TotalAmount double 
+SettlementAmount double 
+ExcessDatePaid date 
+FRCdate date 
+InvoiceDate date 
+Paid double 
+Deposit double 
+Method text 
+Comments text 
+Status text
