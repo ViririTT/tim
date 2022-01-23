@@ -3,6 +3,7 @@ const app = express();
 const port = 3000;
 const path = require("path");
 const db_connection = require("./mysql_db");
+
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -19,12 +20,11 @@ app.get("/carwash", (req, res) => {
 
 app.post("/recordPanelBeaterData", (req, res) => {
   var myobj = req.body;
-  myobj.dateIn = new Date().getTime();
+  myobj.DateIn = new Date().getTime();
 
   console.log(myobj);
 
-  var sql =
-    "INSERT INTO  metalico.panelbeaters (DateIn, DateOut,Client,Insurance,ClaimNo,InvoiceNo,Vehicle,Reg,SaleAmount,ExcessAmount,SettlementAmount,ExcessDatePaid,FRCdate,InvoiceDate,Paid,Deposit,Method,Comments,Status) VALUES (DateIn, DateOut,Client,Insurance,ClaimNo,InvoiceNo,Vehicle,Reg,SaleAmount,ExcessAmount,SettlementAmount,ExcessDatePaid,FRCdate,InvoiceDate,Paid,Deposit,Method,Comments,Status)";
+  var sql = `INSERT INTO  metalico.panelbeaters(DateOut,Client,Insurance,ClaimNo,InvoiceNo,Vehicle,Reg,SaleAmount,ExcessAmount,TotalAmount,SettlementAmount,ExcessDatePaid,FRCdate,InvoiceDate,Paid,Deposit,Method,Comments,Status) VALUES (${myobj.DateIn}, ${myobj.DateOut},${myobj.Client},${myobj.Insurance},${myobj.ClaimNo},${myobj.InvoiceNo},${myobj.Vehicle},${myobj.Reg},${myobj.SaleAmount},${myobj.ExcessAmount},${myobj.SettlementAmount},${myobj.ExcessDatePaid},${myobj.FRCdate},${myobj.InvoiceDate},${myobj.Paid},${myobj.Deposit},${myobj.Method},${myobj.Comments},${myobj.Status})`;
 
   db_connection.query(sql, function (err, result) {
     if (err) {

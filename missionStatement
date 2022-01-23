@@ -25,7 +25,7 @@ Reports that can be viewed by the executives , summary reports , reports per cli
  Dealers , {Date,Client,Insurance,Vehicle,Method,Comments}
  Private , {}
  Third-party claims,
- Sales per client.{
-     
- }
+ Sales per client.{ id, DateOut, Client, Vehicle, Reg,TotalAmount}
+
+ 
  
