@@ -1,3 +1,22 @@
 CREATE VIEW `sales` AS SELECT  id,client,sales,amount,FROM `matelico`
 CREATE VIEW `dealers` AS SELECT id, DateOut, Client, Vehicle, Reg,TotalAmount FROM `matelico`
-    
+
+
+
+UPDATE `panelbeaters` SET `Insurance`= '' WHERE `Insurance` = 'NULL'
+SELECT * FROM panelbeaters WHERE Insurance != '';  //Insurance
+SELECT * FROM panelbeaters WHERE `DateOut` = '0000-00-00'  //Vehicle on sight
+SELECT * FROM `panelbeaters` ORDER BY `DateIn` DESC //Sales per client on date
+UPDATE `panelbeaters` SET `Status`= 'CheckedOut' WHERE `DateOut` != '0000-00-00' //vehicles serviced
+UPDATE `panelbeaters` SET `Status`= 'pending' WHERE `DateOut` = '0000-00-00' //cars in the service
+
+-- mysql now minus 1 hour
+SELECT (NOW() - INTERVAL 1 HOUR) 'NOW - 1 hour',
+NOW(),
+-- mysql now plus 1 hour
+NOW() + INTERVAL 1 HOUR 'NOW + 1 hour';
+
+
+SELECT `Client`, `DateIn`,`Vehicle`,`Reg`,`Status`, CURDATE(),
+TIMESTAMPDIFF(DAY,`DateIn`,CURDATE()) AS DaysIn
+FROM panelbeaters WHERE `DateOut` = '0000-00-00'//pendingVehicles

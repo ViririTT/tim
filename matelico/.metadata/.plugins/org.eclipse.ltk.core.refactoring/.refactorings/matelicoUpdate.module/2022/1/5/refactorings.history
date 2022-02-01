@@ -1,0 +1,4 @@
+<?xml version=1.0 encoding=UTF-8?>
+<session version=1.0>
+<refactoring comment=Delete Module Configuration Property &apos;dataFormatResourceProperty&apos; description=Delete Module Configuration Property &apos;dataFormatResourceProperty&apos; flags=7 id=com.tibco.bw.core.design.refactoring.delete.moduleproperty stamp=1643182082879/>
+</session>

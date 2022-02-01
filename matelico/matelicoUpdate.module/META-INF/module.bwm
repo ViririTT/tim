@@ -1,0 +1,15 @@
+<?xml version=1.0 encoding=UTF-8?>
+<sca:composite xmi:version=2.0 xmlns:xmi=http://www.omg.org/XMI xmlns:xsi=http://www.w3.org/2001/XMLSchema-instance xmlns:BW=http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW xmlns:XMLSchema=http://www.w3.org/2001/XMLSchema xmlns:compositeext=http://schemas.tibco.com/amx/3.0/compositeext xmlns:dataformat=http://ns.tibco.com/bw/palette/dataformat xmlns:sca=http://www.osoa.org/xmlns/sca/1.0 xmlns:scaext=http://xsd.tns.tibco.com/amf/models/sca/extensions xmi:id=_rHfdIH52EeyUIcJRHnD2ag targetNamespace=http://tns.tibco.com/bw/composite/matelicoUpdate.module name=matelicoUpdate.module compositeext:version=1.0.0 compositeext:formatVersion=2>
+  <sca:property xmi:id=_rsMFoH52EeyUIcJRHnD2ag name=BW.DEPLOYMENTUNIT.TYPE type=XMLSchema:string scalable=true/>
+  <sca:property xmi:id=_rsVPkH52EeyUIcJRHnD2ag name=BW.APPNODE.NAME type=XMLSchema:string scalable=true/>
+  <sca:property xmi:id=_rsYS4H52EeyUIcJRHnD2ag name=BW.DEPLOYMENTUNIT.NAME type=XMLSchema:string scalable=true/>
+  <sca:property xmi:id=_rsb9QH52EeyUIcJRHnD2ag name=BW.HOST.NAME type=XMLSchema:string scalable=true/>
+  <sca:property xmi:id=_rsfnoH52EeyUIcJRHnD2ag name=BW.DOMAIN.NAME type=XMLSchema:string scalable=true/>
+  <sca:property xmi:id=_rsiq8H52EeyUIcJRHnD2ag name=BW.DEPLOYMENTUNIT.VERSION type=XMLSchema:string scalable=true/>
+  <sca:property xmi:id=_rsluQH52EeyUIcJRHnD2ag name=BW.APPSPACE.NAME type=XMLSchema:string scalable=true/>
+  <sca:property xmi:id=_rspYoH52EeyUIcJRHnD2ag name=BW.MODULE.VERSION type=XMLSchema:string scalable=true/>
+  <sca:property xmi:id=_rstDAH52EeyUIcJRHnD2ag name=BW.MODULE.NAME type=XMLSchema:string scalable=true/>
+  <sca:component xmi:id=_retDQH52EeyUIcJRHnD2ag name=ComponentProcess compositeext:version=1.0.0.qualifier>
+    <scaext:implementation xsi:type=BW:BWComponentImplementation xmi:id=_retqUH52EeyUIcJRHnD2ag processName=matelicoupdate.module.Process/>
+  </sca:component>
+</sca:composite>

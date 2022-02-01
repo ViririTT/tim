@@ -1,8 +1,162 @@
 <!DOCTYPE html>
 <html>
-<title>MetalicoMotors</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <title>MetalicoMotors</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: rgb(10, 149, 196);
+        }
+    
+        h2 {
+            color: rgb(223, 220, 62);
+            text-align: center;
+        }
+    
+        p {
+            font-family: verdana;
+            font-size: 12px;
+            color: rgb(55, 16, 161);
+        }
+    </style>
+</head>
 
+<body>
+ 
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h2>Matelico Registration Page</h2>
+            <p>This page is for first time arrivals only</p>
+        </div>
+        <form action="/action_page.php">
+        <p>
+           <div class="row">
+                <div class="col-sm-6">
+        
+            <div class="form-group">
+                <label for="Client">Client:</label>
+                <input type="text" class="form-control" id="Client" placeholder="Enter Client name" name="Client"><br>
+
+            </div>
+            <div>
+                <label for "ClaimNo">ClaimNo:</label>
+                <input type="number" class="form-control" id="ClaimNo" placeholder="Enter ClaimNo name" name="ClaimNo"><br>
+
+            </div>
+            <div>
+                <label for "InvoiceNo">InvoiceNo:</label>
+                <input type="number" class="form-control" id="InvoiceNo" placeholder="Enter InvoiceNo name" name="InvoiceNo"><br>
+
+            </div>
+            <div>
+                <label for "Vehicle">Vehicle:</label>
+                <input type="text" class="form-control" id="Vehicle" placeholder="Enter Vehicle name" name="Vehicle"><br>
+
+            </div>
+            <div>
+                <label for "Reg">Reg:</label>
+                <input type="text" class="form-control" id="Reg" placeholder="Enter Reg name" name="Reg"><br>
+
+            </div>
+            
+            <div>
+                <label for="Status">Status list:</label><br>
+
+                <select class="form-control" id="Status">
+                    <option value="pending">pending</option>
+                    <option value="eft">CheckedOut</option>
+                </select><br>
+          
+
+                <!-- <input type="number" class="form-control" id="Status" placeholder="select Status " name="Status"> -->
+            </div>
+            <div>
+                <label for "FRCdate">FRCdate:</label>
+                <input type="date" class="form-control" id="FRCdate" placeholder="Enter total Sale Amount " name="FRCdate"><br>
+            </div>
+            <div>
+                <label for "InvoiceDate">InvoiceDate:</label>
+                <input type="date" class="form-control" id="InvoiceDate" placeholder="Enter total Sale Amount " name="InvoiceDate"><br>
+            </div>
+            <div>
+                <label for "ExcessDatePaid">ExcessDatePaid:</label>
+                <input type="date" class="form-control" id="ExcessDatePaid" placeholder="Enter total Sale Amount " name="ExcessDatePaid"><br>
+            </div>
+            
+        
+        </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        
+                        <label for="Insurance">Insurance list:</label><br>
+
+                        <select class="form-control" id="Insurance">
+                            <option value="Bryte">Bryte</option>
+                            <option value="Santam">Santam</option>
+                            <option value="Integresure">Integresure</option>
+                            <option value="Old Mutual">Old Mutual</option>
+                            <option value="Miway">Miway</option>
+                        </select>
+                    </div>
+                    <div>
+                    <br>
+
+                        <label for "SaleAmount">SaleAmount:</label>
+                        <input type="number" class="form-control" id="SaleAmount" placeholder="Enter total Sale Amount " name="SaleAmount"><br>
+
+                    </div>
+                    <div>
+                        <label for "ExcessAmount">ExcessAmount:</label>
+                        <input type="number" class="form-control" id="ExcessAmount" placeholder="Enter total ExcessAmount "
+                            name="ExcessAmount"><br>
+
+                    </div>
+                    <div>
+                        <label for "TotalAmount">TotalAmount:</label>
+                        <input type="number" class="form-control" id="TotalAmount" placeholder="Enter TotalAmount name" name="TotalAmount"><br>
+
+                    </div>
+                    <div>
+                        <label for "SettlementAmount">SettlementAmount:</label>
+                        <input type="number" class="form-control" id="SettlementAmount" placeholder="Enter SettlementAmount name"
+                            name="SettlementAmount"><br>
+
+                    </div>
+                    <div>
+                        <label for "Comments">Comments:</label>
+                        <input type="text" class="form-control" id="Comments" placeholder="Enter Comments here" name="Comments"><br>
+                    </div>
+                    <div>
+                        <label for="Method">Payment method:</label>
+                        <select class="form-control" id="Method">
+                            <option value="cash">cash</option>
+                            <option value="eft">eft</option>
+                            <option value="momo">momo</option>
+                        </select><br>
+                    </div>
+                    <div>
+                        <label for "Paid">Paid:</label>
+                        <input type="date" class="form-control" id="Paid" placeholder="Enter the date of payment here" name="Paid"><br>
+                    </div>
+                    <div>
+                        <label for "">Deposit:</label>
+                        <input type="number" class="form-control" id="Deposit" placeholder="Enter total deposit here" name="Deposit"><br>
+                    </div>
+
+                </p>
+
+            
+                </div>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" />
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
@@ -13,104 +167,25 @@
 <body>
 
     <div class="w3-container">
-
-        <div class="w3-card-4">
-            <div class="w3-container mlb">
-                <h2>Panel Beaters Input Form</h2>
+<form class="col-lg-6 offset-lg-3">
+    <div class="row justify-content-center">
+        <div class="row">
+            <div class="col-sm-6">
+                Left
             </div>
+        
+            <div class="col-sm-6">
+                Right
+            </div>
+        </div> -->
 
-            <form class="w3-container">
-               
-                <p>
-                    <input class="w3-input" id="DateIn" type="date">
-                    <label>DateIn</label>
-                </p>
-                </p>
-                <p>
-                    <input class="w3-input" id="DateOut" type="date">
-                    <label>DateOut</label>
-                </p>
-                </p>
-                <p>
-                    <input class="w3-input" id="Client" type="text">
-                    <label>Client</label>
-                </p>
-                </p>
-                <p>
-                    <input class="w3-input" id="Insurance" type="text">
-                    <label>Insurance</label></p>
-                </p>
-                <p>
-                    <input class="w3-input" id="ClaimNo" type="text">
-                    <label>ClaimNo</label>
-                </p>
-                <p>
-                    <input class="w3-input" id="InvoiceNo" type="text">
-                    <label>InvoiceNo</label>
-                </p>
-                <p>
-                    <input class="w3-input" id="Vehicle" type="text">
-                    <label>Vehicle</label>
-                </p>
-                <p>
-                    <input class="w3-input" id="Reg" type="text">
-                    <label>Reg</label>
-                </p>
-                <p>
-                    <input class="w3-input" id="SaleAmount" type="text">
-                    <label>SaleAmount</label>
-                </p>
-                <p>
-                    <input class="w3-input" id="ExcessAmount" type="double">
-                    <label>ExcessAmount</label>
-                </p>
-                <p>
-                    <input class="w3-input" id="TotalAmount" type="double">
-                    <label>TotalAmount</label>
-                </p>
-                <p>
-                    <input class="w3-input" id="SettlementAmount" type="double">
-                    <label>SettlementAmount</label>
-                </p>
-                <p>
-                    <input class="w3-input" id="ExcessDatePaid" type="date">
-                    <label>ExcessDatePaid</label>
-                </p>
-                
-                <p>
-                    <input class="w3-input" id="FRCdate" type="date">
-                    <label>FRCdate</label>
-                </p>
-                <p>
-                    <input class="w3-input" id="InvoiceDate" type="date">
-                    <label>InvoiceDate</label>
-                </p>
-                <p>
-                    <input class="w3-input" id="Paid" type="double">
-                    <label>Paid</label>
-                </p>
-                <p>
-                    <input class="w3-input" id="Deposit" type="double">
-                    <label>Deposit</label>
-                </p>
-                <p>
-                    <input class="w3-input" id="Method" type="text">
-                    <label>Method</label>
-                </p>
-                <p>
-                    <input class="w3-input" id="Comments" type="text">
-                    <label>Comments</label>
-                </p>
-                <p>
-                    <input class="w3-input" id="Status" type="text">
-                    <label>Status</label>
-                </p>
-
-                <button>Send</button>
-            </form>
-        </div>
+        <!-- <input type="text" placeholder="Example input">
+        <span class="input-group-btn">
+            <button class="btn btn-primary">Download</button>
+        </span> -->
     </div>
-
+</form>
+      
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {

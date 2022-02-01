@@ -1,0 +1,7 @@
+<?xml version=1.0 encoding=UTF-8?>
+<jndi:namedResource xmi:version=2.0 xmlns:xmi=http://www.omg.org/XMI xmlns:xsi=http://www.w3.org/2001/XMLSchema-instance xmlns:dataformat=http://ns.tibco.com/bw/palette/dataformat xmlns:jndi=http://xsd.tns.tibco.com/amf/models/sharedresource/jndi xmlns:json_1643183223635=http://tns.tibco.com/bw/json/1643183223635 xmi:id=_UX67oX57EeyUIcJRHnD2ag name=matelicoupdate.module.DataFormatResource type=dataformat:DataFormat>
+  <imports xmi:id=_L1OsYH58EeyUIcJRHnD2ag importType=http://www.w3.org/2001/XMLSchema namespace=http://tns.tibco.com/bw/json/1643183223635/>
+  <jndi:configuration xsi:type=dataformat:DataFormat xmi:id=_UX8JwH57EeyUIcJRHnD2ag formatType=Delimiter separated colSeparator=, colSeparatorParseRule=Treat each character entered as a potential column separator lineSeparator=New Line fillCharacter=Space schemaElementQName=json_1643183223635:panelbeatersElement fieldOffsetsStr=metalico(0,0)>
+    <fieldOffsets xmi:id=_L11JUH58EeyUIcJRHnD2ag name=metalico/>
+  </jndi:configuration>
+</jndi:namedResource>

@@ -21,11 +21,11 @@ Reports that can be viewed by the executives , summary reports , reports per cli
 
  tables:
  
- Insurance , {DateIn, client Insurance ,	Claim No, TotalAmount}
- Dealers , {Date,Client,Insurance,Vehicle,Method,Comments}
- Private , {}
- Third-party claims,
+ Insurance select from dropdown, {DateIn, client, Insurance ,	Claim No, TotalAmount}
+ Dealers select from ,dropdown, {Date,Client,Insurance,Vehicle,Method,Comments}
+ Private ,form {}
+ Third-party claims,form{}
  Sales per client.{ id, DateOut, Client, Vehicle, Reg,TotalAmount}
 
  
- 
+ enviro-> button genarator best--
