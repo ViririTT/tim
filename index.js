@@ -76,16 +76,43 @@ app.post("/recordPanelBeaterData", (req, res) => {
   });
 });
 
-// app.post("/recordCarwashCustomers", (req, res) => {
-//   var myobj = req.body;
-//   myobj.dateIn = new Date().getTime();
+app.post("/recordCarwashCustomers", (req, res) => {
+  var myobj = req.body;
+  myobj.Date = moment(new Date()).format("YYYY-MM-DD");
 
-//   dbo.collection("carWashCustomers").insertOne(myobj, function (err, result) {
-//     if (err) throw err;
-//     res.send("success");
-//   });
-// });
+  var sql =
+    "INSERT INTO  valets(Date,Client,VEHICLEMAKE,Service,REGISTRATION,AMOUNT,TEAM,INVOICE,METHOD,Comments) VALUES ('" +
+    myobj.Date +
+    "','" +
+    myobj.Client +
+    "','" +
+    myobj.VEHICLEMAKE +
+    "','" +
+    myobj.Service +
+    "','" +
+    myobj.REGISTRATION +
+    "','" +
+    myobj.AMOUNT +
+    "','" +
+    myobj.TEAM +
+    "','" +
+    myobj.INVOICE +
+    "','" +
+    myobj.METHOD +
+    "','" +
+    myobj.Comments +
+    "')";
 
+  db_connection.query(sql, function (err, result) {
+    if (err) {
+      console.error(err);
+      res.send("erro");
+    } else {
+      console.log("1 record inserted");
+      res.send("success");
+    }
+  });
+});
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
