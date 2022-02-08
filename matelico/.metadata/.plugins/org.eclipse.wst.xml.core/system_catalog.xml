@@ -1,9 +1,0 @@
-<?xml version=1.0 encoding=UTF-8 standalone=no?>
-<catalog xmlns=urn:oasis:names:tc:entity:xmlns:xml:catalog>
-  <uri name=http://schemas.tibco.com/bw/pe/plugin/5.0/exceptions uri=jar:file:/C:/Program Files/tibco/bw6/studio/4.0/eclipse/../../../eclipse-platform/bundlepool/1.0/org.eclipse.equinox.p2.touchpoint.eclipse/plugins/com.tibco.bw.design_6.3.900.016.jar!/schema/exceptions.xsd/>
-  <uri name=http://schemas.tibco.com/bw/pluginapi/5.0/pluginException uri=jar:file:/C:/Program Files/tibco/bw6/studio/4.0/eclipse/../../../eclipse-platform/bundlepool/1.0/org.eclipse.equinox.p2.touchpoint.eclipse/plugins/com.tibco.bw.design_6.3.900.016.jar!/schema/pluginException.xsd/>
-  <uri name=http://www.tibco.com/bs3.2/extensions uri=jar:file:/C:/Program Files/tibco/bw6/studio/4.0/eclipse/../../../eclipse-platform/bundlepool/1.0/org.eclipse.equinox.p2.touchpoint.eclipse/plugins/com.tibco.xpd.wsdl_4.0.900.001.jar!/schema/bstibex.xsd/>
-  <uri name=http://schemas.xmlsoap.org/wsdl/soap12/ uri=jar:file:/C:/Program Files/tibco/bw6/studio/4.0/eclipse/../../../eclipse-platform/bundlepool/1.0/org.eclipse.equinox.p2.touchpoint.eclipse/plugins/com.tibco.xpd.wsdl_4.0.900.001.jar!/schema/wsdl11soap12.xsd/>
-  <system systemId=http://www.w3.org/2001/xml.xsd uri=jar:file:/C:/Program Files/tibco/bw6/studio/4.0/eclipse/../../../eclipse-platform/bundlepool/1.0/org.eclipse.equinox.p2.touchpoint.eclipse/plugins/org.eclipse.xsd_2.10.0.v20140901-1055.jar!/cache/www.w3.org/2001/xml.xsd/>
-  <uri name=http://www.w3.org/2001/XMLSchema uri=jar:file:/C:/Program Files/tibco/bw6/studio/4.0/eclipse/../../../eclipse-platform/bundlepool/1.0/org.eclipse.equinox.p2.touchpoint.eclipse/plugins/org.eclipse.xsd_2.10.0.v20140901-1055.jar!/cache/www.w3.org/2001/XMLSchema.xsd/>
-</catalog>
