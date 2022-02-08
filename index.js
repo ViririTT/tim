@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const path = require("path");
 const db_connection = require("./mysql_db");
 const moment = require("moment");
@@ -27,7 +27,9 @@ app.post("/recordPanelBeaterData", (req, res) => {
   var sql =
     "INSERT INTO  panelbeaters(DateIn,DateOut,Client,Insurance,ClaimNo,InvoiceNo,Vehicle,Reg,SaleAmount,ExcessAmount,TotalAmount,SettlementAmount,ExcessDatePaid,FRCdate,InvoiceDate,Paid,Deposit,Method,Comments,Status) VALUES ('" +
     myobj.DateIn +
-    "',DateOut,'" +
+    "','" +
+    myobj.DateOut +
+    "','" +
     myobj.Client +
     "','" +
     myobj.Insurance +
@@ -70,7 +72,7 @@ app.post("/recordPanelBeaterData", (req, res) => {
       console.error(err);
       res.send("erro");
     } else {
-      console.log("1 record inserted");
+      console.log("1 record inserted in panelbeaters tables ");
       res.send("success");
     }
   });
@@ -108,7 +110,7 @@ app.post("/recordCarwashCustomers", (req, res) => {
       console.error(err);
       res.send("erro");
     } else {
-      console.log("1 record inserted");
+      console.log("1 record inserted in valet");
       res.send("success");
     }
   });
