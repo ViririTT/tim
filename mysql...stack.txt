@@ -1,0 +1,6 @@
+CREATE USER 'tim'@'localhost' IDENTIFIED BY 'passw0rd';
+GRANT ALL PRIVILEGES ON *.* TO 'tim'@'localhost' WITH GRANT OPTION;
+CREATE DATABASE metalico;
+metalico < metalico.sql
+mysql -u tim -p  metalico < metalico.sql
+CREATE DATABASE metalico;
