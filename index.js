@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 8082;
+const port = 8082;
+//  process.env.PORT ||
 // app.listen(port, () => console.log(`Listening on port ${port}..`));
 const path = require("path");
 const db_connection = require("./mysql_db");
