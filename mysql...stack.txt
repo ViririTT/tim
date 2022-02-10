@@ -4,3 +4,6 @@ CREATE DATABASE metalico;
 metalico < metalico.sql
 mysql -u tim -p  metalico < metalico.sql
 CREATE DATABASE metalico;
+
+ npm i -g pm2//process manger
+ pm2 start index.js //to start 
