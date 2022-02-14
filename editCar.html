@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Edit - Car</title>
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron text-center">
+        <h2>Matelico valet</h2>
+        <p>This page is for updating an exsisting customer</p>
+    </div>
+    <form action="/action_page.php">
+        <p>
+        <div class="row">
+            <div class="col-sm-6">
+
+                <div class="form-group">
+                    <label for="Client">Client:</label>
+                    <input type="text" class="form-control" id="Client" placeholder="Enter Client name"
+                        name="Client"><br>
+
+                </div>
+
+                <div>
+                    <label for "REGISTRATION">REGISTRATION:</label>
+                    <input type="text" class="form-control" id="REGISTRATION"
+                        placeholder="Enter registration plate name" name="REGISTRATION"><br>
+
+                </div>
+                <div>
+                    <label for "AMOUNT">AMOUNT:</label>
+                    <input type="number" class="form-control" id="AMOUNT" placeholder="Enter amount paid"
+                        name="AMOUNT"><br>
+
+                </div>
+                <div>
+                    <label for "INVOICE">INVOICE NO:</label>
+                    <input type="number" class="form-control" id="INVOICE" placeholder="Enter invoice number "
+                        name="INVOICE"><br>
+                </div>
+                <div>
+                    <label for="METHOD">Payment method:</label>
+                    <select class="form-control" id="METHOD">
+                        <option value="cash">cash</option>
+                        <option value="eft">eft</option>
+                        <option value="momo">momo</option>
+                    </select><br>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+
+
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <div>
+                        <label for "VEHICLEMAKE">VEHICLEMAKE:</label>
+                        <input type="text" class="form-control" id="VEHICLEMAKE" placeholder="Enter vehiclemake name"
+                            name="VEHICLEMAKE"><br>
+
+                    </div>
+                    <div>
+                        <br>
+                        <label for="Service">Service offered:</label>
+                        <select class="form-control" id="Service">
+                            <option value="valet">valet</option>
+                            <option value="undercarriage">undercarriage</option>
+                            <option value="Engine ">Engine</option>
+                            <option value="Tier 1">Tier 1</option>
+                            <option value="Tier 2">Tier 2</option>
+                            <option value="2x4 Stage Glaze  ">2x4 Stage Glaze</option>
+                            <option value="3 Stage Glaze">3 Stage Glaze</option>
+                            <option value="3 Stage Glaze + Claying">3 Stage Glaze + Claying</option>
+                            <option value="Headlight Restoration ">Headlight Restoration</option>
+                            <option value="Tier 2 + undercarriage">Tier 2 + undercarriage</option>
+                            <option value="TIER 2 ( Excludes Engine)">TIER 2(Excludes Engine)</option>
+
+                        </select><br>
+                    </div>
+                    <div>
+                        <label for="TEAM">TEAM offering Service:</label>
+                        <select class="form-control" id="TEAM">
+                            <option value="Enkie">Enkie</option>
+                            <option value="Henry">Henry</option>
+                            <option value="Engine ">Engine</option>
+                            <option value="Gift">Gift</option>
+                            <option value="Eugenia">Eugenia</option>
+
+                        </select><br>
+                    </div>
+                    <div>
+                        <label for "Comments">Comments:</label>
+                        <input type="text" class="form-control" id="Comments" placeholder="Enter Comments here"
+                            name="Comments"><br>
+                    </div>
+                </div>
+            </div>
+    </form>
+</div>
+</body>
+</form>
+
+    <script>
+        $(document).ready(function(){
+            function findGetParameter(parameterName) {
+                var result = null,
+                    tmp = [];
+                var items = location.search.substr(1).split("&");
+                for (var index = 0; index < items.length; index++) {
+                    tmp = items[index].split("=");
+                    if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+                }
+                return result;
+            }
+
+
+            $.ajax({
+                method: "POST",
+                url: "/get-car-by-registration",
+                data: JSON.stringify({ id: findGetParameter("id")}),
+                contentType: "application/json; charset=utf-8",
+                traditional: true,
+                success: function (data) {
+                    var carDetails = data.response[0]
+                    console.log(carDetails)
+                    //populating data not submitting it
+                    $("#Client").val(carDetails.CLIENT)
+                    $("#VEHICLEMAKE").val(carDetails.VEHICLEMAKE)
+                    $("#Service").val(carDetails.Service)
+                    $("#REGISTRATION").val(carDetails.REGISTRATION)
+                    $("#AMOUNT").val(carDetails.AMOUNT)
+                    $("#TEAM").val(carDetails.TEAM)
+                    $("#INVOICE").val(carDetails.INVOICE)
+                    $("#METHOD").val(carDetails.METHOD)
+                    $("#Comments").val(carDetails.comments)                    
+                },error : function(error) {
+
+                    alert("failed to populate data")
+                }
+            })
+              
+            $("button").click(function (e) {
+                console.log("about to send data...")
+                e.preventDefault()
+
+                $.ajax({
+                    method: "POST",
+                    url: "/update-car",
+                    data: JSON.stringify({ DateIn: $("#Date").val(), Client: $("#Client").val(), VEHICLEMAKE: $("#VEHICLEMAKE").val(), Service: $("#Service").val(), REGISTRATION: $("#REGISTRATION").val(), AMOUNT: $("#AMOUNT").val(), TEAM: $("#TEAM").val(), INVOICE: $("#INVOICE").val(), METHOD: $("#METHOD").val(), Comments: $("#Comments").val() }),
+                    contentType: "application/json; charset=utf-8",
+                    traditional: true,
+                    success: function (results) {
+                        alert("Updated succesfuly...")
+                    },
+                    error: function (err) {
+                        alert("Error")
+                    }
+                })
+            });
+        });
+    </script>
+    
+</body>
+</html>

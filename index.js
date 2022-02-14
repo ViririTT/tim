@@ -21,6 +21,115 @@ app.get("/carwash", (req, res) => {
   res.sendFile(path.join(__dirname + "/carwash.html"));
 });
 
+app.post("/deleteCar", (req, res) => {
+  var myObj = req.body;
+
+  var sql =
+    "DELETE FROM valets WHERE valets.REGISTRATION = '" +
+    myObj.idToBeUsedInApi +
+    "'";
+
+  db_connection.query(sql, function (err, result) {
+    if (err) {
+      console.log(err);
+      res.send("err");
+    } else {
+      console.log("Number of records deleted: " + result.affectedRows);
+      res.send("ok");
+    }
+  });
+});
+
+app.get("/carwash-list", (req, res) => {
+  res.sendFile(path.join(__dirname + "/carwashList.html"));
+});
+
+app.get("/edit-car", (req, res) => {
+  var id = req.query.id;
+  var options = {
+    headers: {
+      registration_id: id,
+    },
+  };
+
+  res.sendFile(path.join(__dirname, "/editCar.html"), options);
+});
+
+app.post("/get-car-by-registration", (req, res) => {
+  console.log("Test");
+  db_connection.query(
+    "SELECT * FROM valets WHERE REGISTRATION = '" + req.body.id + "'",
+    function (err, results) {
+      if (err) {
+      } else {
+        res.send({ response: results });
+      }
+    }
+  );
+});
+
+app.get("/get-records-carwash", (req, res) => {
+  var sql = "SELECT * FROM valets";
+
+  db_connection.query(sql, function (err, result, fields) {
+    if (err) {
+      res.send({ err: err, hasError: true });
+    } else {
+      res.send({ list: result, hasError: false });
+    }
+  });
+});
+
+app.post("/update-car", (req, res) => {
+  var customerDetails = req.body;
+
+  /*
+
+DateIn: $("#Date").val(),Client: $("#Client").val(), VEHICLEMAKE: $("#VEHICLEMAKE").val(), Service: $("#Service").val() ,REGISTRATION:
+ $("#REGISTRATION").val(), AMOUNT: $("#AMOUNT").val(), TEAM: $("#TEAM").val(), INVOICE: $("#INVOICE").val(), METHOD: $("#METHOD").val(),
+  Comments: $("#Comments").val() }),
+*/
+
+  var sql =
+    "UPDATE valets SET CLIENT =  '" +
+    customerDetails.CLIENT +
+    "',VEHICLEMAKE =  '" +
+    customerDetails.VEHICLEMAKE +
+    "',Service =  '" +
+    customerDetails.Service +
+    "',REGISTRATION =  '" +
+    customerDetails.REGISTRATION +
+    "',AMOUNT =  '" +
+    customerDetails.AMOUNT +
+    "',TEAM =  '" +
+    customerDetails.TEAM +
+    "',INVOICE=  '" +
+    customerDetails.INVOICE +
+    "',METHOD =  '" +
+    customerDetails.METHOD +
+    "',Comments =  '" +
+    customerDetails.Comments +
+    "',CLIENT =  '" +
+    customerDetails.CLIENT +
+    "',CLIENT =  '" +
+    customerDetails.CLIENT +
+    "',CLIENT =  '" +
+    customerDetails.CLIENT +
+    "',CLIENT =  '" +
+    customerDetails.CLIENT +
+    "',WHERE REGISTRATION = '" +
+    customerDetails.REGISTRATION +
+    "'";
+
+  db_connection.query(sql, function (err, result, fields) {
+    if (err) {
+      res.send({ err: err, hasError: true });
+    } else {
+      res.send({ list: result, hasError: false });
+    }
+  });
+});
+
 app.post("/recordPanelBeaterData", (req, res) => {
   var myobj = req.body;
   myobj.DateIn = moment(new Date()).format("YYYY-MM-DD");
