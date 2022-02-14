@@ -4,7 +4,7 @@ var connection = mysql.createConnection({
   host: "localhost",
   user: "tim",
   password: "passw0rd",
-  insecureAuth: true,
+  //insecureAuth: true,
   database: "metalico",
 });
 

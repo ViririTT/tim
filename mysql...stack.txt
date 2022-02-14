@@ -7,3 +7,5 @@ CREATE DATABASE metalico;
 
  npm i -g pm2//process manger
  pm2 start index.js //to start 
+pm2 start index.js --update-env
+pm2 startup 
