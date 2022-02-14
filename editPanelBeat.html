@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Edit - Car</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h2>Matelico Registration Page</h2>
+            <p>This page is for first time arrivals only</p>
+        </div>
+        <form action="/action_page.php">
+            <p>
+            <div class="row">
+                <div class="col-sm-6">
+
+                    <div class="form-group">
+                        <label for="Client">Client:</label>
+                        <input type="text" required="true" class="form-control" id="Client"
+                            placeholder="Enter Client name" name="Client"><br>
+
+                    </div>
+                    <div>
+                        <label for "ClaimNo">ClaimNo:</label>
+                        <input type="number" class="form-control" id="ClaimNo" placeholder="Enter ClaimNo name"
+                            name="ClaimNo" size="5"><br>
+
+                    </div>
+                    <div>
+                        <label for "InvoiceNo">InvoiceNo:</label>
+                        <input type="number" class="form-control" id="InvoiceNo" placeholder="Enter InvoiceNo name"
+                            name="InvoiceNo" size="4"><br>
+
+                    </div>
+                    <div>
+                        <label for "Vehicle">Vehicle:</label>
+                        <input type="text" class="form-control" id="Vehicle" placeholder="Enter Vehicle name"
+                            name="Vehicle"><br>
+
+                    </div>
+                    <div>
+                        <label for "Reg">Registration No.:</label>
+                        <input type="text" class="form-control" id="Reg" required="true"
+                            placeholder="Enter Registration number" name="Reg"><br>
+
+                    </div>
+
+                    <div>
+                        <label for="Status">Status list:</label><br>
+
+                        <select class="form-control" id="Status" required="true">
+                            <option value="pending">pending</option>
+                            <option value="eft">CheckedOut</option>
+                        </select><br>
+
+
+                        <!-- <input type="number" class="form-control" id="Status" placeholder="select Status " name="Status"> -->
+                    </div>
+                    <div>
+                        <label for "FRCdate">FRCdate:</label>
+                        <input type="date" class="form-control" id="FRCdate" placeholder="Enter total Sale Amount "
+                            name="FRCdate"><br>
+                    </div>
+                    <div>
+                        <label for "InvoiceDate">InvoiceDate:</label>
+                        <input type="date" class="form-control" id="InvoiceDate" placeholder="Enter total Sale Amount "
+                            name="InvoiceDate"><br>
+                    </div>
+                    <div>
+                        <label for "ExcessDatePaid">ExcessDatePaid:</label>
+                        <input type="date" class="form-control" id="ExcessDatePaid"
+                            placeholder="Enter total Sale Amount " name="ExcessDatePaid"><br>
+                    </div>
+
+
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+
+                        <label for="Insurance">Insurance list:</label><br>
+
+                        <select class="form-control" required="true" id="Insurance">
+                            <option value="Bryte">Bryte</option>
+                            <option value="Santam">Santam</option>
+                            <option value="Integresure">Integresure</option>
+                            <option value="Old Mutual">Old Mutual</option>
+                            <option value="Miway">Miway</option>
+                            <option value="Private">Private</option>
+                            <option value="Third Party">Third party</option>
+                        </select>
+                    </div>
+                    <div>
+                        <br>
+
+                        <label for "SaleAmount">SaleAmount:</label>
+                        <input type="number" class="form-control" id="SaleAmount" placeholder="Enter total Sale Amount "
+                            name="SaleAmount"><br>
+
+                    </div>
+                    <div>
+                        <label for "ExcessAmount">ExcessAmount:</label>
+                        <input type="number" class="form-control" id="ExcessAmount"
+                            placeholder="Enter total ExcessAmount " name="ExcessAmount"><br>
+
+                    </div>
+                    <div>
+                        <label for "TotalAmount">TotalAmount:</label>
+                        <input type="number" class="form-control" id="TotalAmount" placeholder="Enter TotalAmount name"
+                            name="TotalAmount"><br>
+
+                    </div>
+                    <div>
+                        <label for "SettlementAmount">SettlementAmount:</label>
+                        <input type="number" class="form-control" id="SettlementAmount"
+                            placeholder="Enter SettlementAmount name" name="SettlementAmount"><br>
+
+                    </div>
+                    <div>
+                        <label for "Comments">Comments:</label>
+                        <input type="text" class="form-control" id="Comments" placeholder="Enter Comments here"
+                            name="Comments"><br>
+                    </div>
+                    <div>
+                        <label for="Method">Payment method:</label>
+                        <select class="form-control" id="Method">
+                            <option value="cash">cash</option>
+                            <option value="eft">eft</option>
+                            <option value="momo">momo</option>
+                        </select><br>
+                    </div>
+                    <div>
+                        <label for "Paid">Paid:</label>
+                        <input type="date" class="form-control" id="Paid" placeholder="Enter the date of payment here"
+                            name="Paid"><br>
+                    </div>
+                    <div>
+                        <label for "">Deposit:</label>
+                        <input type="number" class="form-control" id="Deposit" placeholder="Enter total deposit here"
+                            name="Deposit"><br>
+                    </div>
+
+                    </p>
+
+
+                </div>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+</body>
+</form>
+
+    <script>
+        $(document).ready(function(){
+            function findGetParameter(parameterName) {
+                var result = null,
+                    tmp = [];
+                var items = location.search.substr(1).split("&");
+                for (var index = 0; index < items.length; index++) {
+                    tmp = items[index].split("=");
+                    if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+                }
+                return result;
+            }
+
+
+            $.ajax({
+                method: "POST",
+                url: "/get-panelbeat-by-registration",
+                data: JSON.stringify({ id: findGetParameter("id")}),
+                contentType: "application/json; charset=utf-8",
+                traditional: true,
+                success: function (data) {
+                    var carDetails = data.response[0]
+                    console.log("try to populate")
+                    //populating data not submitting it
+
+                    $("#Client").val(carDetails.Client)
+                    $("#Insurance").val(carDetails.Insurance)
+                    $("#ClaimNo").val(carDetails.ClaimNo)
+                    $("#InvoiceNo").val(carDetails.InvoiceNo)
+                    $("#Vehicle").val(carDetails.Vehicle)
+                    $("#Reg").val(carDetails.Reg)
+                    $("#SaleAmount").val(carDetails.SaleAmount) 
+                    $("#ExcessAmount").val(carDetails.ExcessAmount)
+                    $("#TotalAmount").val(carDetails.TotalAmount)
+                    $("#SettlementAmount").val(carDetails.SettlementAmount)
+                    $("# ExcessDatePaid").val(carDetails. ExcessDatePaid)
+                    $("#FRCdate").val(carDetails.FRCdate)
+                    $("#InvoiceDate").val(carDetails.InvoiceDate)
+                    $("#Paid").val(carDetails.Paid)
+                    $("#Deposit").val(carDetails.Deposit)
+                    $("# Method").val(carDetails. Method)
+                    $("#Comments").val(carDetails.Comments) 
+                    $("#Status").val(carDetails.Status)                    
+                },error : function(error) {
+
+                    alert("failed to populate data")
+                }
+            })
+              
+            $("button").click(function (e) {
+                console.log("about to send data...")
+                e.preventDefault()
+
+                $.ajax({
+                    method: "POST",
+                    url: "/update-panelbeat",
+                    data: JSON.stringify({  Client: $("#Client").val(), Insurance: $("#Insurance").val(), ClaimNo: $("#ClaimNo").val(), InvoiceNo: $("#InvoiceNo").val(), Vehicle: $("#Vehicle").val(), Reg: $("#Reg").val(), SaleAmount: $("#SaleAmount").val(), ExcessAmount: $("#ExcessAmount").val(), TotalAmount: $("#TotalAmount").val(), SettlementAmount: $("#SettlementAmount").val(), ExcessDatePaid: $("#ExcessDatePaid").val(), FRCdate: $("#FRCdate").val(), InvoiceDate: $("#InvoiceDate").val(), Paid: $("#Paid").val(), Deposit: $("#Deposit").val(), Method: $("#Method").val(), Comments: $("#Comments").val(), Status: $("#Status").val()}),
+                    contentType: "application/json; charset=utf-8",
+                    traditional: true,
+                    success: function (results) {
+                        alert("Updated succesfuly...")
+                    },
+                    error: function (err) {
+                        alert("Error")
+                    }
+                })
+            });
+        });
+    </script>
+    
+</body>
+</html>

@@ -39,7 +39,7 @@
         
             <div class="form-group">
                 <label for="Client">Client:</label>
-                <input type="text" class="form-control" id="Client" placeholder="Enter Client name" name="Client"><br>
+                <input type="text" required="true" class="form-control" id="Client" placeholder="Enter Client name" name="Client"><br>
 
             </div>
             <div>
@@ -59,14 +59,14 @@
             </div>
             <div>
                 <label for "Reg">Registration No.:</label>
-                <input type="text" class="form-control" id="Reg" placeholder="Enter Registration number" name="Reg"><br>
+                <input type="text" class="form-control" id="Reg" required="true" placeholder="Enter Registration number" name="Reg"><br>
 
             </div>
             
             <div>
                 <label for="Status">Status list:</label><br>
 
-                <select class="form-control" id="Status">
+                <select class="form-control" id="Status" required="true">
                     <option value="pending">pending</option>
                     <option value="eft">CheckedOut</option>
                 </select><br>
@@ -94,19 +94,21 @@
                         
                         <label for="Insurance">Insurance list:</label><br>
 
-                        <select class="form-control" id="Insurance">
+                        <select class="form-control" required="true" id="Insurance">
                             <option value="Bryte">Bryte</option>
                             <option value="Santam">Santam</option>
                             <option value="Integresure">Integresure</option>
                             <option value="Old Mutual">Old Mutual</option>
                             <option value="Miway">Miway</option>
+                            <option value="Private">Private</option>
+                            <option value="Third Party">Third party</option>
                         </select>
                     </div>
                     <div>
                     <br>
 
                         <label for "SaleAmount">SaleAmount:</label>
-                        <input type="number" class="form-control" id="SaleAmount" placeholder="Enter total Sale Amount " name="SaleAmount"><br>
+                        <input type="number" class="form-control" id="SaleAmount" placeholder="Enter total Sale Amount "  name="SaleAmount"><br>
 
                     </div>
                     <div>

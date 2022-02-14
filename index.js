@@ -39,6 +39,22 @@ app.post("/deleteCar", (req, res) => {
     }
   });
 });
+app.post("/deletePanelbeat", (req, res) => {
+  var myObj = req.body;
+
+  var sql =
+    "DELETE FROM panelbeaters WHERE Reg = '" + myObj.idToBeUsedInApi + "'";
+
+  db_connection.query(sql, function (err, result) {
+    if (err) {
+      console.log(err);
+      res.send("err");
+    } else {
+      console.log("Number of records deleted: " + result.affectedRows);
+      res.send("ok");
+    }
+  });
+});
 
 app.get("/carwash-list", (req, res) => {
   res.sendFile(path.join(__dirname + "/carwashList.html"));
@@ -55,10 +71,36 @@ app.get("/edit-car", (req, res) => {
   res.sendFile(path.join(__dirname, "/editCar.html"), options);
 });
 
+app.get("/panelbeat-list", (req, res) => {
+  res.sendFile(path.join(__dirname + "/panelbeatList.html"));
+});
+app.get("/edit-panelbeaters", (req, res) => {
+  var id = req.query.id;
+  var options = {
+    headers: {
+      registration_id: id,
+    },
+  };
+
+  res.sendFile(path.join(__dirname, "/panelbeat.html"), options);
+});
+
 app.post("/get-car-by-registration", (req, res) => {
-  console.log("Test");
+  console.log("Car retrieved by registration car wash");
   db_connection.query(
     "SELECT * FROM valets WHERE REGISTRATION = '" + req.body.id + "'",
+    function (err, results) {
+      if (err) {
+      } else {
+        res.send({ response: results });
+      }
+    }
+  );
+});
+app.post("/get-panelbeat-by-registration", (req, res) => {
+  console.log("car retrieved by panelbeat");
+  db_connection.query(
+    "SELECT * FROM panelbeaters WHERE panelbeaters.Reg = '" + req.body.id + "'",
     function (err, results) {
       if (err) {
       } else {
@@ -70,6 +112,17 @@ app.post("/get-car-by-registration", (req, res) => {
 
 app.get("/get-records-carwash", (req, res) => {
   var sql = "SELECT * FROM valets";
+
+  db_connection.query(sql, function (err, result, fields) {
+    if (err) {
+      res.send({ err: err, hasError: true });
+    } else {
+      res.send({ list: result, hasError: false });
+    }
+  });
+});
+app.get("/get-records-panelbeat", (req, res) => {
+  var sql = "SELECT * FROM panelbeaters";
 
   db_connection.query(sql, function (err, result, fields) {
     if (err) {
@@ -110,15 +163,62 @@ DateIn: $("#Date").val(),Client: $("#Client").val(), VEHICLEMAKE: $("#VEHICLEMAK
     "',Comments =  '" +
     customerDetails.Comments +
     "',CLIENT =  '" +
-    customerDetails.CLIENT +
-    "',CLIENT =  '" +
-    customerDetails.CLIENT +
-    "',CLIENT =  '" +
-    customerDetails.CLIENT +
-    "',CLIENT =  '" +
-    customerDetails.CLIENT +
     "',WHERE REGISTRATION = '" +
     customerDetails.REGISTRATION +
+    "'";
+
+  db_connection.query(sql, function (err, result, fields) {
+    if (err) {
+      res.send({ err: err, hasError: true });
+    } else {
+      res.send({ list: result, hasError: false });
+    }
+  });
+});
+
+app.post("/update-panelbeat", (req, res) => {
+  var carDetails = req.body;
+  var sql =
+    "UPDATE panelbeaters SET DateIn =  '" +
+    carDetails.DateIn +
+    "',DateOut =  '" +
+    carDetails.DateOut +
+    "',Client =  '" +
+    carDetails.Client +
+    "',Insurance =  '" +
+    carDetails.Insurance +
+    "',ClaimNo =  '" +
+    carDetails.ClaimNo +
+    "',InvoiceNo =  '" +
+    carDetails.InvoiceNo +
+    "',Vehicle=  '" +
+    carDetails.Vehicle +
+    "',SaleAmount =  '" +
+    carDetails.SaleAmount +
+    "',ExcessAmount =  '" +
+    carDetails.ExcessAmount +
+    "',TotalAmount =  '" +
+    carDetails.TotalAmount +
+    "',SettlementAmount =  '" +
+    carDetails.SettlementAmount +
+    "',ExcessDatePaid =  '" +
+    carDetails.ExcessDatePaid +
+    "',FRCdate =  '" +
+    carDetails.FRCdate +
+    "',InvoiceDate =  '" +
+    carDetails.InvoiceDate +
+    "',Paid =  '" +
+    carDetails.Paid +
+    "',Deposit =  '" +
+    carDetails.Deposit +
+    "',Method =  '" +
+    carDetails.Method +
+    "',Comments =  '" +
+    carDetails.Comments +
+    "',Status =  '" +
+    carDetails.Status +
+    "',WHERE Reg = '" +
+    carDetails.Reg +
     "'";
 
   db_connection.query(sql, function (err, result, fields) {

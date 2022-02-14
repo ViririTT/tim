@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Car Wash List</title>
+</head>
+<style>
+    .card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+</style>
+<body>
+
+    <h1>
+       PANELBEAT LIST PREVIOUS CLIENTS
+    </h1>
+    <div id="my-list"></div>
+
+    <script>
+        $(document).ready(function(){
+
+            $.ajax({
+                method: "GET",
+                data : {},
+                url: "/get-records-panelbeat",
+                success: function(data){
+                    if(data.hasError) alert("Something is wrong in the backend")
+
+                    else {  
+                
+                    var renderList = data.list.map((panelbeaters)=> {
+                        return `
+                        <div class="card"  >
+                            <img src="img_avatar.png" alt="Avatar" style="width:100%">
+                                <div class="container"> 
+                                <h4><b>${panelbeaters.Vehicle}</b></h4>
+                                <p>Insurance: ${panelbeaters.Insurance}</p>                          
+                                <h3>Client Name: ${panelbeaters.Client}</h3>
+                                <p>Registration Plate :${panelbeaters.Reg}</p>
+                                <button class="delete" id=${panelbeaters.Reg}>Delete</button>
+                                <a href="/edit-panelbeaters?id=${panelbeaters.Reg}">Update</a>
+                            </div>
+                            <hr>
+                        `
+                    })
+
+
+                    $("#my-list").html(renderList)  
+                  
+                    $(".delete").click(function(e){   
+                        var id= $(this).attr("id")                  
+                        var answer = confirm("Do you want to delete")
+
+                        if(answer == true) {
+                             $.ajax({
+                                method: "POST",
+                                data: JSON.stringify({ idToBeUsedInApi: id }),
+                                contentType: "application/json; charset=utf-8",
+                                traditional: true,
+                                url: "/deletePanelbeat",
+                                success: function (data) {
+                                    if(data == "ok") {
+                                        var response =`Successfuly deleted the car with registration id:${id}!`
+                                        alert(response)
+                                       location.reload();
+                                    }  else  {
+                                        //alert there was erro
+                                    }
+                                },error: function(error){
+//different error maybe when there is not internet this executes or just cant reach backend
+                                }
+                            })
+//rest api to send to backend the registration number(id)
+//on response just manualy refresh the page for now, but you should look at refrsshing using js
+                        } else{
+                            return false
+                          var response = `canceled deleting the car with registration id:${id}!`
+
+                        }
+                    })
+                }             
+                 }, 
+                error: function(error) {
+                    //handle error 
+                }
+
+            })
+        })
+    </script>
+</body>
+</html>
