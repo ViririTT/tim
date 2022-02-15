@@ -11,7 +11,7 @@
 </head>
 <style>
     .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(48, 6, 231, 0.2);
   transition: 0.3s;
   width: 40%;
 }
@@ -25,6 +25,27 @@
 }
 </style>
 <body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/#">MetalicoMotors</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/#">Home</a></li>
+                    <li><a href="/panelbeat">panelbeat new</a></li>
+                    <li><a href="/panelbeat-list">panelbeat Old</a></li>
+                    <li><a href="/carwash">carwash new</a></li>
+                    <li><a href="/carwash-list">carwash Old</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <h1>
         CAR WASH LIST PREVIOUS CLIENTS
@@ -46,7 +67,7 @@
                     var renderList = data.list.map((valet)=> {
                         return `
                         <div class="card"  >
-                            <img src="img_avatar.png" alt="Avatar" style="width:100%">
+                            
                                 <div class="container"> 
                                 <h4><b>John Doe</b></h4>
                                 <p> ${valet.Service}</p>                          

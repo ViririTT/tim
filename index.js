@@ -8,6 +8,7 @@ const db_connection = require("./mysql_db");
 const moment = require("moment");
 
 app.use(express.json());
+app.use(express.static("public"));
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "/index.html"));
@@ -82,7 +83,7 @@ app.get("/edit-panelbeaters", (req, res) => {
     },
   };
 
-  res.sendFile(path.join(__dirname, "/panelbeat.html"), options);
+  res.sendFile(path.join(__dirname, "/editPanelBeat.html"), options);
 });
 
 app.post("/get-car-by-registration", (req, res) => {
