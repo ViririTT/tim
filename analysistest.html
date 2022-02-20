@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Analysis</title>
+    <!-- <script type="text/javascript" src="https://spotfire.cloud.tibco.com/spotfire/wp/GetJavaScriptApi.ashx?Version=7.5">
+    
+        var c_serverUrl = "https://eu.spotfire-next.cloud.tibco.com/spotfire/wp/analysis";
+        var c_analysisPath = "/Users/kpw6emcdwvizgikjhydpsnktu2a4npac/Public/Mashup";
+
+        var c_parameters = "";//optional config block
+        var customization = new spotfire.webPlayer.Customization();//makes available for download
+        var app;
+        var c_reloadAnalysisInstances = false;
+
+        window.onload = function () {
+            app = new spotfire.webPlayer.Application(c_serverUrl, customization, c_analysisPath, c_parameters, c_reloadAnalysisInstances);
+
+
+            //Hide UI elements 
+            customization.showDodPanel = true;
+            customization.showStatusBar = true;
+            customization.showToolBar = true;
+            customization.showPageNavigation = true;
+            customization.showClose = false;
+            customization.showAnalysisInfo = true;
+            customization.showExportFile = true;
+            customization.showExportVirtualization = true;
+            customization.UndoRedo = true;
+            customization.showFilterPanel = true;
+
+            var viewOne = app.openDocument("demoViz", "IndividualExp", customization);
+            var viewTwo = app.openDocument("demoViz2", "ProductMgmnt", customization);
+            var viewThree = app.openDocument("demoViz3", "Marketing", customization);
+            var viewFour = app.openDocument("demoViz4", "Finance", customization);
+            var viewFive = app.openDocument("demoViz5", "IndividualExp", customization);
+            var viewSix = app.openDocument("demoViz6", "IndividualExp", customization);
+
+
+        }
+
+
+    </script> -->
+<script type="text/javascript" src="https://spotfire.cloud.tibco.com/spotfire/wp/GetJavaScriptApi.ashx?Version=11.7.0"> 
+        var c_serverUrl = "https://eu.spotfire-next.cloud.tibco.com/spotfire/wp/";
+        var c_analysisPath = "/Users/kpw6emcdwvizgikjhydpsnktu2a4npac/Public/Mashup";
+        
+            customization.showTopHeader = true;
+
+            customization.showToolBar = true;
+
+            customization.showAbout = false;
+            customization.showAnalysisInfo = false;
+            customization.showAnalysisInformationTool = false;
+            customization.showClose = false;
+            customization.showCustomizableHeader = false;
+            customization.showDodPanel = false;
+
+            customization.showExportFile = true;
+
+            customization.showExportVisualization = false;
+            customization.showFilterPanel = true;
+            customization.showHelp = false;
+            customization.showLogout = false;
+            customization.showPageNavigation = false;
+            customization.showReloadAnalysis = false;
+            customization.showStatusBar = false;
+            customization.showUndoRedo = false;
+
+
+            var _analysisDocument;
+            var parameters = "";
+            var analysisPath = "/Renewables/PortfolioView";
+            // During development this is normally set to false.
+            var reloadInstances = false;
+            var app = new spotfire.webPlayer.Application(c_serverurl, customization, analysisPath, parameters, reloadInstances);
+            window.onload = function () {
+                try {
+                    alert('Hello !!');
+                    app.onOpened(onOpenedCallback);
+                    app.onClosed(onClosedCallback);
+                    var initialPage = "Page";
+                    var viewOne = app.openDocument("container", "", customization);
+
+                }
+                catch (e) {
+                    alert('error occurred');
+                    alert(e.message);
+                }
+            }
+
+            function onClosedCallback(analysisPath) {
+                alert('On closed ' + analysisPath)
+
+            }
+
+            function getDocumentPropertyCallback(property) {
+                alert(property.value)
+            }
+
+            function onOpenedCallback(analysisDocument) {
+                alert("In onOpenedCallback");
+            }
+            function errorCallback(errorCode, description) {
+                alert("error details:" + errorCode + ": " + description);
+            }
+
+        </script>
+    <style>
+       body {
+            margin: 0
+        }
+        
+
+        demoViz {
+            width: 640px;
+            height: 480;
+            background-color: rgb(50, 11, 158);
+
+        }
+    </style>
+
+</head>
+
+<body>
+    this is the analysis:
+    <div id="demoViz"></div>
+    <div id="demoViz2"></div>
+
+</body>
+
+</html>
