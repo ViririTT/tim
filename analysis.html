@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Analysis</title>
+    <script type="text/javascript" src="https://spotfire.cloud.tibco.com/spotfire/wp/GetJavaScriptApi.ashx?Version=7.5">
+    </script>
+    <script>
+        var c_serverUrl = "https://eu.spotfire-next.cloud.tibco.com/spotfire/wp";
+        var c_analysisPath = "/Users/kpw6emcdwvizgikjhydpsnktu2a4npac/Public/Mashup";
+
+        var c_parameters = "";//optional config block
+        var customization = new spotfire.webPlayer.Customization();//makes available for download
+        var app;
+        var c_reloadAnalysisInstances = false;
+
+        window.onload = function () {
+            app = new spotfire.webPlayer.Application(c_serverUrl, customization, c_analysisPath, c_parameters, c_reloadAnalysisInstances);
+
+
+            //Hide UI elements 
+            customization.showDodPanel = true;
+            customization.showStatusBar = true;
+            customization.showToolBar = true;
+            customization.showPageNavigation = true;
+            customization.showClose = false;
+            customization.showAnalysisInfo = true;
+            customization.showExportFile = true;
+            customization.showExportVirtualization = true;
+            customization.UndoRedo = true;
+            customization.showFilterPanel = true;
+
+            var viewOne = app.openDocument("demoViz", "/IndividualExp", customization);
+            var viewTwo = app.openDocument("demoViz2", "ProductMgmnt", customization);
+            var viewThree = app.openDocument("demoViz3", "Marketing", customization);
+            var viewFour = app.openDocument("demoViz4", "Finance", customization);
+            var viewFive = app.openDocument("demoViz5", "IndividualExp", customization);
+            var viewSix = app.openDocument("demoViz6", "IndividualExp", customization);
+
+
+        }
+
+
+    </script>
+    
+    
+
+
+        body {
+            margin: 0
+        }
+        
+
+        demoViz {
+            width: 640px;
+            height: 480;
+            background-color: rgb(50, 11, 158);
+
+        }
+    </style>
+
+</head>
+
+<body>
+    this is the analysis
+    <div id="demoViz"></div>
+    <div id="demoViz2"></div>
+
+</body>
+
+</html>
