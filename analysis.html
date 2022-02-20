@@ -9,10 +9,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Analysis</title>
-    <script type="text/javascript" src="https://spotfire.cloud.tibco.com/spotfire/wp/GetJavaScriptApi.ashx?Version=7.5">
-    </script>
-    <script>
-        var c_serverUrl = "https://eu.spotfire-next.cloud.tibco.com/spotfire/wp";
+    <!-- <script type="text/javascript" src="https://spotfire.cloud.tibco.com/spotfire/wp/GetJavaScriptApi.ashx?Version=7.5">
+    
+        var c_serverUrl = "https://eu.spotfire-next.cloud.tibco.com/spotfire/wp/analysis";
         var c_analysisPath = "/Users/kpw6emcdwvizgikjhydpsnktu2a4npac/Public/Mashup";
 
         var c_parameters = "";//optional config block
@@ -36,7 +35,7 @@
             customization.UndoRedo = true;
             customization.showFilterPanel = true;
 
-            var viewOne = app.openDocument("demoViz", "/IndividualExp", customization);
+            var viewOne = app.openDocument("demoViz", "IndividualExp", customization);
             var viewTwo = app.openDocument("demoViz2", "ProductMgmnt", customization);
             var viewThree = app.openDocument("demoViz3", "Marketing", customization);
             var viewFour = app.openDocument("demoViz4", "Finance", customization);
@@ -47,12 +46,74 @@
         }
 
 
-    </script>
-    
-    
+    </script> -->
+<script type="text/javascript" src="https://spotfire.cloud.tibco.com/spotfire/wp/GetJavaScriptApi.ashx?Version=11.7.0"> 
+        var c_serverUrl = "https://eu.spotfire-next.cloud.tibco.com/spotfire/wp/";
+        var c_analysisPath = "/Users/kpw6emcdwvizgikjhydpsnktu2a4npac/Public/Mashup";
+        
+            customization.showTopHeader = false;
+
+            customization.showToolBar = true;
+
+            customization.showAbout = false;
+            customization.showAnalysisInfo = false;
+            customization.showAnalysisInformationTool = false;
+            customization.showClose = false;
+            customization.showCustomizableHeader = false;
+            customization.showDodPanel = false;
+
+            customization.showExportFile = true;
+
+            customization.showExportVisualization = false;
+            customization.showFilterPanel = true;
+            customization.showHelp = false;
+            customization.showLogout = false;
+            customization.showPageNavigation = false;
+            customization.showReloadAnalysis = false;
+            customization.showStatusBar = false;
+            customization.showUndoRedo = false;
 
 
-        body {
+            var _analysisDocument;
+            var parameters = "";
+            var analysisPath = "/Renewables/PortfolioView";
+            // During development this is normally set to false.
+            var reloadInstances = false;
+            var app = new spotfire.webPlayer.Application(c_serverurl, customization, analysisPath, parameters, reloadInstances);
+            window.onload = function () {
+                try {
+                    alert('Hello !!');
+                    app.onOpened(onOpenedCallback);
+                    app.onClosed(onClosedCallback);
+                    var initialPage = "Page";
+                    var viewOne = app.openDocument("container", "", customization);
+
+                }
+                catch (e) {
+                    alert('error occurred');
+                    alert(e.message);
+                }
+            }
+
+            function onClosedCallback(analysisPath) {
+                alert('On closed ' + analysisPath)
+
+            }
+
+            function getDocumentPropertyCallback(property) {
+                alert(property.value)
+            }
+
+            function onOpenedCallback(analysisDocument) {
+                alert("In onOpenedCallback");
+            }
+            function errorCallback(errorCode, description) {
+                alert("error details:" + errorCode + ": " + description);
+            }
+
+        </script>
+    <style>
+       body {
             margin: 0
         }
         
