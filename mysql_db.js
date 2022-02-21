@@ -2,8 +2,8 @@ var mysql = require("mysql");
 
 var connection = mysql.createConnection({
   host: "localhost",
-  user: "root",
-  password: "password",
+  user: "tim",
+  password: "passw0rd",
   insecureAuth: true,
   database: "metalico",
 });
