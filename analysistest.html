@@ -1,28 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- <html>
 <head>
     <meta charset="UTF-8">
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Analysis</title>
-    <!-- <script type="text/javascript" src="https://spotfire.cloud.tibco.com/spotfire/wp/GetJavaScriptApi.ashx?Version=7.5">
+    <script type="text/javascript" src="https://spotfire.cloud.tibco.com/spotfire/wp/GetJavaScriptApi.ashx?Version=7.5">
+    <title>Simple mashup example</title>
+    <script src="https://spotfire-next.cloud.tibco.com/spotfire/js-api/loader.js"></script>
     
         var c_serverUrl = "https://eu.spotfire-next.cloud.tibco.com/spotfire/wp/analysis";
         var c_analysisPath = "/Users/kpw6emcdwvizgikjhydpsnktu2a4npac/Public/Mashup";
-
+</head>
         var c_parameters = "";//optional config block
         var customization = new spotfire.webPlayer.Customization();//makes available for download
         var app;
         var c_reloadAnalysisInstances = false;
-
+<body>
+    <div id="container"></div>
+</body>
+<script>
+    var app;
+    var doc;
+    var webPlayerServerRootUrl = "https://spotfire-next.cloud.tibco.com/spotfire/wp/";
+    var analysisPath = "/Users/kpw6emcdwvizgikjhydpsnktu2a4npac/Public/Mashup&waid=kOmk1EGay0WLkHPYr0vKI-0721204374mCxu&wavid=0";
+    var parameters = '';
+    var reloadInstances = true;
+    var apiVersion = "7.14";
+    var customizationInfo;
+    spotfire.webPlayer.createApplication(
+        webPlayerServerRootUrl,
+        customizationInfo,
+        analysisPath,
+        parameters,
+        reloadInstances,
+        apiVersion,
+        onReadyCallback,
+        onCreateLoginElement
+    );
+    function onReadyCallback(response, newApp) {
+        app = newApp;
+        if (response.status === "OK") {
+            // The application is ready, meaning that the api is loaded and that 
+            // the analysis path is validated for the current session 
+            // (anonymous or logged in user)
+            console.log("OK received. Opening document to page 0 in element renderAnalysis")
+            doc = app.openDocument("container", 0);
+        }
+        else {
+            console.log("Status not OK. " + response.status + ": " + response.message)
+        }
+    }
         window.onload = function () {
             app = new spotfire.webPlayer.Application(c_serverUrl, customization, c_analysisPath, c_parameters, c_reloadAnalysisInstances);
-
-
+    function onError(error) {
+        console.log("Error: " + error);
+    }
+    function onCreateLoginElement() {
+        console.log("Creating the login element");
             //Hide UI elements 
             customization.showDodPanel = true;
             customization.showStatusBar = true;
@@ -34,105 +74,42 @@
             customization.showExportVirtualization = true;
             customization.UndoRedo = true;
             customization.showFilterPanel = true;
-
+        // Optionally create and return a div to host the login button
+        return null;
+    }
+</script>
             var viewOne = app.openDocument("demoViz", "IndividualExp", customization);
             var viewTwo = app.openDocument("demoViz2", "ProductMgmnt", customization);
             var viewThree = app.openDocument("demoViz3", "Marketing", customization);
             var viewFour = app.openDocument("demoViz4", "Finance", customization);
             var viewFive = app.openDocument("demoViz5", "IndividualExp", customization);
             var viewSix = app.openDocument("demoViz6", "IndividualExp", customization);
+</html> -->
 
+<html>
 
-        }
-
-
-    </script> -->
-<script type="text/javascript" src="https://spotfire.cloud.tibco.com/spotfire/wp/GetJavaScriptApi.ashx?Version=11.7.0"> 
-        var c_serverUrl = "https://eu.spotfire-next.cloud.tibco.com/spotfire/wp/";
-        var c_analysisPath = "/Users/kpw6emcdwvizgikjhydpsnktu2a4npac/Public/";
-        
-            customization.showTopHeader = true;
-
-            customization.showToolBar = true;
-
-            customization.showAbout = false;
-            customization.showAnalysisInfo = false;
-            customization.showAnalysisInformationTool = false;
-            customization.showClose = false;
-            customization.showCustomizableHeader = false;
-            customization.showDodPanel = false;
-
-            customization.showExportFile = true;
-
-            customization.showExportVisualization = false;
-            customization.showFilterPanel = true;
-            customization.showHelp = false;
-            customization.showLogout = false;
-            customization.showPageNavigation = false;
-            customization.showReloadAnalysis = false;
-            customization.showStatusBar = false;
-            customization.showUndoRedo = false;
-
-
-            var _analysisDocument;
-            var parameters = "";
-            var analysisPath = "/Renewables/PortfolioView";
-            // During development this is normally set to false.
-            var reloadInstances = false;
-            var app = new spotfire.webPlayer.Application(c_serverurl, customization, analysisPath, parameters, reloadInstances);
-            window.onload = function () {
-                try {
-                    alert('Hello !!');
-                    app.onOpened(onOpenedCallback);
-                    app.onClosed(onClosedCallback);
-                    var initialPage = "Page";
-                    var viewOne = app.openDocument("container", "", customization);
-
-                }
-                catch (e) {
-                    alert('error occurred');
-                    alert(e.message);
-                }
-            }
-
-            function onClosedCallback(analysisPath) {
-                alert('On closed ' + analysisPath)
-
-            }
-
-            function getDocumentPropertyCallback(property) {
-                alert(property.value)
-            }
-
-            function onOpenedCallback(analysisDocument) {
-                alert("In onOpenedCallback");
-            }
-            function errorCallback(errorCode, description) {
-                alert("error details:" + errorCode + ": " + description);
-            }
-
+<head>
+    <script type="text/javascript"
+        src="https://spotfire-next.cloud.tibco.com/spotfire/wp/GetJavaScriptApi.ashx?Version=7.5">
         </script>
-    <style>
-       body {
-            margin: 0
-        }
-        
+    <script>
+            var serverUrl = "https://spotfire-next.cloud.tibco.com/spotfire/wp/";
+            var analysisPath = "/Samples/Expense Analyzer Dashboard";
+            var customizationInfo = new spotfire.webPlayer.Customization();
 
-        demoViz {
-            width: 640px;
-            height: 480;
-            background-color: rgb(50, 11, 158);
-
-        }
-    </style>
-
+            window.onload = function () {
+                var app = new spotfire.webPlayer.Application(serverUrl,
+                    customizationInfo,
+                    analysisPath);
+                var doc = app.openDocument("container");
+            }
+    </script>
 </head>
 
 <body>
     this is the analysis:
-    <div id="demoViz"></div>
-    <div id="demoViz2"></div>
 
+    <div id="container"></div>
 </body>
 
 </html>
