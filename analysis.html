@@ -17,10 +17,10 @@
     var serverUrl = "https://spotfire-next.cloud.tibco.com/spotfire/wp/";
     var analysisPath = "/Users/kpw6emcdwvizgikjhydpsnktu2a4npac/Public/";
     var customizationInfo = new spotfire.webPlayer.Customization();
-    customizationInfo.showCustomizableHeader : false,
-            customizationInfo.showStatusBar = false;
-        customizationInfo.showToolBar = false;
-        customizationInfo.showPageNavigation = false;
+             customizationInfo.showCustomizableHeader = false;
+             customizationInfo.showStatusBar = false;
+             customizationInfo.showToolBar = false;
+             customizationInfo.showPageNavigation = false;
     
     window.onload = function () {
         var app = new spotfire.webPlayer.Application(serverUrl,
@@ -93,11 +93,11 @@
     </nav>
 
     <div class="container">
-        <h3>Metalicor</h3>
+        <h3>Metalico</h3>
         <p><iframe
             src="https://eu.spotfire-next.cloud.tibco.com/spotfire/wp/OpenAnalysis?file=/Users/kpw6emcdwvizgikjhydpsnktu2a4npac/flatten_dxp_script&configurationBlock=SetPage%28pageIndex%3D1%29%3B&options=13-1,10-1,9-1,5-0,6-0,17-1,11-1,12-1,14-1,1-1,3-1,18-1,7-1,15-1,19-1,4-1,2-1"
             width="1000" height="700"></iframe></p>
-            <div id="container"></div>
+           
     </div>
     
     <div class="footer">
