@@ -110,48 +110,97 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>MetalicoMotors</title>
-    <script src="https://spotfire-next.cloud.tibco.com/spotfire/js-api/loader.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script type="text/javascript"
         src="https://spotfire-next.cloud.tibco.com/spotfire/wp/GetJavaScriptApi.ashx?Version=7.5">
         </script>
+        
+    <script>
+        var serverUrl = "https://spotfire-next.cloud.tibco.com/spotfire/wp/";
+        var analysisPath = "/Samples/Expense Analyzer Dashboard";
+        var customizationInfo = new spotfire.webPlayer.Customization();
+        customizationInfo = {
+                showCustomizableHeader: false,
+                showStatusBar: false,
+                showToolBar: false,
+                showPageNavigation: false
+            }
+
+        window.onload = function () {
+            var app = new spotfire.webPlayer.Application(serverUrl,
+                customizationInfo,
+                analysisPath);
+            var doc = app.openDocument("container");
+        }
+    </script>
+    <style>
+        body {
+            background: #86848a !important;
+        }
+    
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: rgb(50, 11, 158);
+            color: white;
+            text-align: center;
+        }
+    
+        container {
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            background-color: #333;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 
 <body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">MetalicoMotors</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                    <li><a href="/panelbeat">AddNewSales</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sales <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Daily</a></li>
+                            <li><a href="#">Weekly</a></li>
+                            <li><a href="#">Monthly</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Panelbeat</a></li>
+                    <li><a href="#">Valets</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div id="container"></div>
+    <div class="footer">
+        <p>&copy sptservices - 2022</p>
+    </div>
 </body>
-<script>
-    var app;
-    var doc;
-    var webPlayerServerRootUrl = "https://spotfire-next.cloud.tibco.com/spotfire/wp/";
-    var analysisPath = "/Samples/Expense Analyzer Dashboard";
-    var parameters = '';
-    var reloadInstances = true;
-    var apiVersion = "7.14";
-    var customizationInfo;
-    
-
-    
-
-        spotfire.webPlayer.createApplication(
-            webPlayerServerRootUrl,
-            customizationInfo,
-            analysisPath,
-            parameters,
-            reloadInstances,
-            apiVersion,
-            onReadyCallback,
-        );
-
-        function onReadyCallback(response, newApp) {
-            app = newApp;
-            if (response.status === "OK") {
-                
-                doc = app.openDocument("container", 0);
-            }
-        }
-</script>
 
 </html>
