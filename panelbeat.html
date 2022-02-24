@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
+<head>
+<title>MetalicoMotors</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -12,11 +15,11 @@
     }
 
     body {
-        background-color: #f1f1f1;
+        background-color: #3f15c7;
     }
 
     #regForm {
-        background-color: #ffffff;
+        background-color: #7b7b7b;
         margin: 100px auto;
         font-family: Raleway;
         padding: 40px;
@@ -55,6 +58,10 @@
         font-family: Raleway;
         cursor: pointer;
     }
+      h2 {
+            color: rgb(223, 220, 62);
+            text-align: center;
+      }
 
     button:hover {
         opacity: 0.8;
@@ -75,6 +82,15 @@
         display: inline-block;
         opacity: 0.5;
     }
+     .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: rgb(50, 11, 158);
+            color: white;
+            text-align: center;
+        }
 
     .step.active {
         opacity: 1;
@@ -85,13 +101,42 @@
         background-color: #04AA6D;
     }
 </style>
-
+</head>
 <body>
-
-    <form id="regForm">
-        <h1>Metalico Panelbeaters Registration form:</h1><br>
+  <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/#">MetalicoMotors</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/#">Home</a></li>
+                        <li><a href="/panelbeat">panelbeat new</a></li>
+                        <li><a href="/panelbeat-list">panelbeat Old</a></li>
+                        <li><a href="/carwash">carwash new</a></li>
+                        <li><a href="/carwash-list">carwash Old</a></li>
+                        <li><a href="/analysis">Data Analytics</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+<body>
+    <p>
+ 
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h2>Matelico Registration Page</h2>
+            <p>This page is for first time arrivals only</p>
+        </div>
+    <form id="regForm" action="/action_page.php" >
+        <!-- <h1>Metalico Panelbeaters Registration form:</h1><br> -->
         <!-- One "tab" for each step in the form: -->
-        <div class="tab">Client Info:
+        <div class="tab"><h3>Client Info:</h3>
             <p><label for="Client">Client:</label>
                 <input type="text" required="true" class="form-control" id="Client" placeholder="Enter Client name"
                     name="Client"><br>
@@ -101,12 +146,12 @@
                     <option value="pending">pending</option>
                     <option value="eft">CheckedOut</option>>
             </p>
-        </br></br> 
-                    <p><label for="Comments">Comments:</label>
+         
+                    <p><br><br><br><label for="Comments">Comments:</label>
                         <input type="text" class="form-control" id="Comments" placeholder="Enter Comments here" name="Comments"><br>
                     </p>
         </div>
-        <div class="tab">Vehicle Info:
+        <div class="tab"><h3>Vehicle Info:</h3>
             <p><label for="Vehicle">Vehicle:</label>
                 <input type="text" class="form-control" id="Vehicle" placeholder="Enter Vehicle make" name="Vehicle">
             </p>
@@ -115,7 +160,7 @@
                     name="Reg"><br>
             </p>
         </div>
-        <div class="tab">Insurance Info:
+        <div class="tab"><h3>Insurance Info:</h3>
             <p><label for="Insurance">Insurance list:</label><br>
 
                 <select class="form-control" required="true" id="Insurance">
@@ -145,7 +190,7 @@
                     name="ExcessDatePaid"><br>
             </p> -->
         </div>
-        <div class="tab">Sale Info:
+        <div class="tab"><h3>Sale Info:</h3>
             <p><label for "SaleAmount">SaleAmount:</label>
                 <input type="number" class="form-control" id="SaleAmount" placeholder="Enter total Sale Amount "
                     name="SaleAmount"><br></p>
@@ -312,7 +357,9 @@
             x[n].className += " active";
         }
     </script>
-
+  <div class="footer">
+        <p>&copy sptservices - 2022</p>
+    </div>
 </body>
 
 </html>
