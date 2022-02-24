@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -88,23 +89,25 @@
 <body>
 
     <form id="regForm">
-        <h1>Register:</h1>
+        <h1>Metalico Panelbeaters Registration form:</h1><br>
         <!-- One "tab" for each step in the form: -->
         <div class="tab">Client Info:
             <p><label for="Client">Client:</label>
                 <input type="text" required="true" class="form-control" id="Client" placeholder="Enter Client name"
                     name="Client"><br>
             </p>
-            <p><label for="Status">Status list:</label>
+            <p><label for="Status">Status:</label>
                 <select class="form-control" id="Status" required="true">
                     <option value="pending">pending</option>
                     <option value="eft">CheckedOut</option>>
             </p>
-            <p><label for "Comments">Comments:</label>
-                        <input type="text" class="form-control" id="Comments" placeholder="Enter Comments here" name="Comments"><br></p>
+        </br></br> 
+                    <p><label for="Comments">Comments:</label>
+                        <input type="text" class="form-control" id="Comments" placeholder="Enter Comments here" name="Comments"><br>
+                    </p>
         </div>
         <div class="tab">Vehicle Info:
-            <p><label for "Vehicle">Vehicle:</label>
+            <p><label for="Vehicle">Vehicle:</label>
                 <input type="text" class="form-control" id="Vehicle" placeholder="Enter Vehicle make" name="Vehicle">
             </p>
             <p><label for "Reg">Registration No.:</label>
