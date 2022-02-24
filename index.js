@@ -240,8 +240,10 @@ app.post("/recordPanelBeaterData", (req, res) => {
   myobj.DateIn = moment(new Date()).format("YYYY-MM-DD");
   myobj.DateOut = moment(new Date()).format("YYYY-MM-DD");
 
+  console.log("Received record of panel beater to save...");
+
   var sql =
-    "INSERT INTO  panelbeaters(DateIn,DateOut,Client,Insurance,ClaimNo,InvoiceNo,Vehicle,Reg,SaleAmount,ExcessAmount,TotalAmount,SettlementAmount,ExcessDatePaid,FRCdate,InvoiceDate,Paid,Deposit,Method,Comments,Status) VALUES ('" +
+    "INSERT INTO  panelbeaters(DateIn,DateOut,Client,Insurance,ClaimNo,InvoiceNo,Vehicle,Reg,SaleAmount,ExcessAmount,TotalAmount,SettlementAmount,Deposit,Method,Comments,Status) VALUES ('" +
     myobj.DateIn +
     "','" +
     myobj.DateOut +
@@ -266,14 +268,6 @@ app.post("/recordPanelBeaterData", (req, res) => {
     "','" +
     myobj.SettlementAmount +
     "','" +
-    myobj.ExcessDatePaid +
-    "','" +
-    myobj.FRCdate +
-    "','" +
-    myobj.InvoiceDate +
-    "','" +
-    myobj.Paid +
-    "','" +
     myobj.Deposit +
     "','" +
     myobj.Method +
@@ -286,10 +280,10 @@ app.post("/recordPanelBeaterData", (req, res) => {
   db_connection.query(sql, function (err, result) {
     if (err) {
       console.error(err);
-      res.send("erro");
+      res.status(500).send("error");
     } else {
       console.log("1 record inserted in panelbeaters tables ");
-      res.send("success");
+      res.status(200).send("success");
     }
   });
 });
