@@ -11,7 +11,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
-const bcrypt = require("bcrypt");
+// const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
 app.use(express.json());
