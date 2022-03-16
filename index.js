@@ -6,12 +6,121 @@ const port = 8082;
 const path = require("path");
 const db_connection = require("./mysql_db");
 const moment = require("moment");
+const cors = require("cors");
+
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 
 app.use(express.json());
+app.use(
+  cors({
+    origin: ["http://localhost:3000"],
+    methods: ["GET", "POST"],
+    credentials: true,
+  })
+);
 app.use(express.static("public"));
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(
+  session({
+    key: "userId",
+    secret: "subscribe",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      expires: 60 * 60 * 24,
+    },
+  })
+);
+
+// const db = mysql.createConnection({
+//   user: "root",
+//   host: "localhost",
+//   password: "password",
+//   database: "metalico",
+// });
+
+app.post("/register", (req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+
+  bcrypt.hash(password, saltRounds, (err, hash) => {
+    if (err) {
+      console.log(err);
+    }
+
+    db_connection.query(
+      "INSERT INTO users (username, password) VALUES (?,?)",
+      [username, hash],
+      (err, result) => {
+        console.log(err);
+      }
+    );
+  });
+});
+
+/// app.get("/")
+
+// app.get("/login", (req, res) => {
+//   if (req.session.user) {
+//     res.send({ loggedIn: true, user: req.session.user });
+//   } else {
+//     res.send({ loggedIn: false });
+//   }
+// });
+
+// "/" render login page TO:dO check if user is not already logged in?
+
+app.post("/login", (req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+
+  db_connection.query(
+    "SELECT * FROM users WHERE username = ?;",
+    username,
+    async (err, result) => {
+      if (err) {
+        console.log(err);
+        res.send("An error occured in the server. Please try again...");
+      } else {
+        if (result.length > 0) {
+          if (password == result[0].password) {
+            req.session.user = result;
+            res.send("success");
+          } else {
+            res.send("Wrong username/password combination!");
+          }
+        } else {
+          res.send("Username/password is incorrect"); // Khabuya, even when username doesn't exist say message as wrong username/password
+        }
+      }
+    }
+  );
+});
+
+app.get("/home", (req, res) => {
+  if (req.session && req.session.user) {
+    //render home
+    console.log("Can go ahead");
+    res.sendFile(path.join(__dirname + "/index.html"));
+  } else {
+    console.log("No logged in");
+    //redirect tlogin
+    res.sendFile(path.join(__dirname + "/login.html"));
+  }
+});
+
+app.listen(3001, () => {
+  console.log("running server");
+});
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname + "/index.html"));
+  res.sendFile(path.join(__dirname + "/login.html"));
 });
 
 app.get("/analysis", (req, res) => {
