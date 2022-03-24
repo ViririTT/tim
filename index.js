@@ -106,10 +106,10 @@ app.post("/login", (req, res) => {
 app.get("/home", (req, res) => {
   if (req.session && req.session.user) {
     //render home
-    console.log("Can go ahead");
+    console.log("Can go ahead and access the web page");
     res.sendFile(path.join(__dirname + "/index.html"));
   } else {
-    console.log("No logged in");
+    console.log("Not logged in");
     //redirect tlogin
     res.sendFile(path.join(__dirname + "/login.html"));
   }
@@ -125,6 +125,15 @@ app.get("/", (req, res) => {
 
 app.get("/analysis", (req, res) => {
   res.sendFile(path.join(__dirname + "/analysis.html"));
+});
+app.get("/analysisPanelbeat", (req, res) => {
+  res.sendFile(path.join(__dirname + "/analysisPanelbeat.html"));
+});
+app.get("/analysisValets", (req, res) => {
+  res.sendFile(path.join(__dirname + "/analysisValets.html"));
+});
+app.get("/analysisDealers", (req, res) => {
+  res.sendFile(path.join(__dirname + "/analysisDealers.html"));
 });
 
 app.get("/panelbeat", (req, res) => {
