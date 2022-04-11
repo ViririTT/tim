@@ -1,4 +1,0 @@
-{
-  "appService.defaultWebAppToDeploy": "/subscriptions/bb0599ee-a68c-484b-850c-0a911b1f58cc/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/matelicomotors",
-  "appService.deploySubpath": "."
-}
