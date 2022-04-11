@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 8082;
+const port = 3000;
 //  process.env.PORT ||
 // app.listen(port, () => console.log(`Listening on port ${port}..`));
 const path = require("path");

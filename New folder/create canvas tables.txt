@@ -1,9 +1,0 @@
-SELECT *,
-YEAR(DateIn)
- AS  year_of_sale
- FROM `panelbeaters`
-
- SELECT *,
-YEAR(Date)
- AS  year_of_sale
- FROM `valets`
