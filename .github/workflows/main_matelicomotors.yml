@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'matelicomotors'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E0A8124FE8B84A6BBA9A36024D3F17BF }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5138820761F643EF978D8F1C97B48B72 }}
           package: .
