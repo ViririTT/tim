@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "login.html",
-    "build": "webpack --config prod.config.js'"
+    "build": "webpack"
   },
   "keywords": [],
   "author": "timothy viriri",
@@ -29,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/ViririTT/tim/issues"
   },
-  "homepage": "https://github.com/ViririTT/tim#readme"
+  "homepage": "https://github.com/ViririTT/tim#readme",
+  "devDependencies": {
+    "webpack": "^5.72.0"
+  }
 }
