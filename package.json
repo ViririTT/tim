@@ -4,7 +4,7 @@
   "description": "matelico app",
   "main": "index.js",
   "scripts": {
-    "start": "login.html",
+    "start": "index.js",
     "build": "echo 'build run'"
   },
   "keywords": [],
